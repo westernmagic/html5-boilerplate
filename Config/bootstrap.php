@@ -1,0 +1,1 @@
+App:build( array( 'View' => array( App:pluginPath( 'Html5' ) . DS . 'Views' . DS ) ) , App::PREPEND ) ;
