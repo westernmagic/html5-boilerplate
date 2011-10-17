@@ -30,7 +30,9 @@
 		
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 		
-		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/normalize.css" />
+		<link rel="stylesheet" href="css/gh-buttons.css" />
+		<link rel="stylesheet" href="css/helper_printer.css" />
 		<?php echo $scripts_for_layout ; ?>
 		
 		<!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
