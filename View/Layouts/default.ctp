@@ -25,15 +25,15 @@
 		<meta name="description" content="" />
 		<meta name="author" content="" />
 		
-		<!-- Mobile viewport optimized: j.mp/bplateviewport -->
+		<!-- Mobile viewport optimized: h5bp.com/viewport -->
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 		
-		<link rel="stylesheet" href="css/normalize.css" />
-		<link rel="stylesheet" href="css/gh-buttons.css" />
-		<link rel="stylesheet" href="css/helper_printer.css" />
-		<?php echo $scripts_for_layout ; ?>
+		<?php
+			echo $this->Html->css( array( '/Html5/css/normalize' , '/GithubButtons/css/gh-buttons' , '/Html5/css/helper_printer' ) ) ;
+			echo $scripts_for_layout ;
+		?>
 		
 		<!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 		
@@ -62,14 +62,15 @@
 				) ;
 			?>
 		</footer>
+		<?php echo $this->element( 'sql_dump' ) ; ?>
 		
 		
 		<!-- JavaScript at the bottom for fast page loading -->
 		
 		<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script>
-			window.jQuery || document.write('<script src="js/libs/jquery-1.6.4.min.js"><\/script>')
+			window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')
 		</script>
 		
 		
@@ -81,7 +82,7 @@
 		
 		<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID. mathiasbynens.be/notes/async-analytics-snippet -->
 		<script>
-			var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview'],['_trackPageLoadTime']];
+			var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
 			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
 			g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
 			s.parentNode.insertBefore(g,s)}(document,'script'));
