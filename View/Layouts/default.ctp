@@ -31,8 +31,8 @@
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 		
 		<?php
+			echo $this->AssetCompress->includeCss() ;
 			echo $this->Html->css( array( '/Html5/css/normalize' , '/GithubButtons/css/gh-buttons' , '/Html5/css/helper_printer' ) ) ;
-			echo $scripts_for_layout ;
 		?>
 		
 		<!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
@@ -79,6 +79,11 @@
 		<script defer src="js/script.js"></script>
 		<!-- end scripts -->
 		
+		<?php
+			echo $this->AssetCompress->includeJs() ;
+			echo $scripts_for_layout ;
+			echo $this->Js->writeBuffer() ;
+		?>
 		
 		<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID. mathiasbynens.be/notes/async-analytics-snippet -->
 		<script>
@@ -95,8 +100,6 @@
 				window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})
 			</script>
 		<![endif]-->
-		
-		<?php echo $this->Js->writeBuffer() ; ?>
 		
 	</body>
 </html>
