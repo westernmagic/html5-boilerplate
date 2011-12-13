@@ -2,7 +2,7 @@ firstname: Michal
 surname: Sudwoj
 contact: mailto:mswoj61@gmail.com
 subtitle:
-    - med:
+    - med: http://www.med.uzh.ch/
     - student
     - uzh: http://www.uzh.ch/
 
@@ -99,6 +99,7 @@ links:
           url: http://www.misfile.com/
     - Web:
         - name: CakePHP
+          description: The Rapid Development Framework for PHP
           url: http://www.cakephp.org
         - name: HTML5-Boilerplate
           description: A rock-solid default for HTML5 awsome.
@@ -110,7 +111,23 @@ links:
         - name: W3Fools
           description: W3Schools - An intervention - Are you using? Abusing? We're here to help.
           url: http://w3fools.com/
+    - Things:
+        - name: ThinkGeek
+          description: Stuff for smart masses
+          url: http://www.thinkgek.com/
+        - name: Gunnar
+          description: Digital Performance Eyewear
+          url: http://www.gunnars.com/
+        - name: Sumo
+          description: Urban Lounge Gear
+          url: http://www.sumolounge.com/
+        - name: digitec
+          url: http://www.digitec.ch/
+        - name: Utilikilts
+          url: http://www.utilikilts.com/
     - iPhone:
+        - name: Apple
+          url: http://www.apple.com/
         - name: iPhone Dev Team
           url: http://blog.iphone-dev.org/
         - name: iDroid

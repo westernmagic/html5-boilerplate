@@ -57,6 +57,7 @@ header ul li {
 	top: 0px ;
 	right: 0px ;
 	text-align: center ;
+	z-index: 2 ;
 }
 
 footer {
