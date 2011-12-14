@@ -32,7 +32,7 @@
 		
 		<?php
 			echo $this->AssetCompress->includeCss() ;
-			echo $this->Html->css( array( '/Html5/css/normalize' , '/GithubButtons/css/gh-buttons' , '/Html5/css/helper_printer' ) ) ;
+			echo $this->Html->css( array( '/Html5/css/normalize' , 'cake.generic' , 'style' , '/GithubButtons/css/gh-buttons' , '/Html5/css/helper_printer' ) ) ;
 		?>
 		
 		<!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
