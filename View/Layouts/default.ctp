@@ -31,7 +31,7 @@
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 		
 		<?php
-			echo $this->AssetCompress->includeCss() ;
+			//echo $this->AssetCompress->includeCss() ;
 			echo $this->Html->css( array( '/Html5/css/normalize' , 'cake.generic' , 'style' , '/GithubButtons/css/gh-buttons' , '/Html5/css/helper_printer' ) ) ;
 		?>
 		
@@ -46,9 +46,39 @@
 		
 		</header>
 		<div role="main">
-			<?php echo $this->Session->flash() ; ?>
-			<?php echo $this->Session->flash( 'email' ) ; ?>
-			<?php echo $content_for_layout ?>
+			<?php
+				echo $this->Session->flash() ;
+				echo $this->Session->flash( 'auth' ) ;
+			?>
+			<div>
+				<?php
+					//echo $this->Html->getCrumbs() ;
+					if( !$this->Session->check( 'Auth.User' ) ) {
+						echo $this->Form->create( 'Member' , array(
+							'url' => array( 'controller' => 'Members' , 'action' => 'login' ) ,
+							'inputDefaults' => array(
+								'label' => false ,
+								'div' => false ,
+								'dateFormat' => 'DMY' ,
+								'minYear' => '1911' ,
+								'maxYear' => '2011'
+							)
+						) ) ;
+						echo $this->Form->input( 'username' , array( 'placeholder' => 'Benuztername' ) ) ;
+						echo $this->Form->input( 'password' , array( 'placeholder' => 'Passwort' ) ) ;
+						echo $this->Form->button( 'Einloggen' , array( 'type' => 'submit' , 'class' => 'button big icon key' ) ) ;
+						echo $this->Form->end() ;
+					} else {
+						$member = $this->Session->read( 'Auth.User' ) ;
+						echo $member[ 'name' ] ;
+						echo '<span class="button-group" >' ;
+						echo $this->Html->link( 'Profil bearbeiten' , array( 'controller' => 'Members' , 'action' => 'edit' , $member[ 'id' ] ) , array( 'class' => 'button big icon user' ) ) ;
+						echo $this->Html->link( 'Aussloggen' , array( 'controller' => 'Members' , 'action' => 'logout' ) , array( 'class' => 'button big icon key' ) ) ;
+						echo '</span>' ;
+					}
+				?>
+			</div>
+			<?php echo $content_for_layout ; ?>
 		</div>
 		<footer>
 			<?php
@@ -80,7 +110,7 @@
 		<!-- end scripts -->
 		
 		<?php
-			echo $this->AssetCompress->includeJs() ;
+			//echo $this->AssetCompress->includeJs() ;
 			echo $scripts_for_layout ;
 			echo $this->Js->writeBuffer() ;
 		?>
