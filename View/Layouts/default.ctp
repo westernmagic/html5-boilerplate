@@ -51,8 +51,11 @@
 				echo $this->Session->flash( 'auth' ) ;
 			?>
 			<div>
-				<?php
-					//echo $this->Html->getCrumbs() ;
+				<span class="breadcrumbs" >
+					<?php echo $this->Html->getCrumbs( ' > ' , 'Home' ) ; ?>
+				</span>
+				<span class="user-bar">
+					<?php
 					if( !$this->Session->check( 'Auth.User' ) ) {
 						echo $this->Form->create( 'Member' , array(
 							'url' => array( 'controller' => 'Members' , 'action' => 'login' ) ,
@@ -66,14 +69,14 @@
 						) ) ;
 						echo $this->Form->input( 'username' , array( 'placeholder' => 'Benuztername' ) ) ;
 						echo $this->Form->input( 'password' , array( 'placeholder' => 'Passwort' ) ) ;
-						echo $this->Form->button( 'Einloggen' , array( 'type' => 'submit' , 'class' => 'button big icon key' ) ) ;
+						echo $this->Form->button( 'Einloggen' , array( 'type' => 'submit' , 'class' => 'button icon key' ) ) ;
 						echo $this->Form->end() ;
 					} else {
 						$member = $this->Session->read( 'Auth.User' ) ;
 						echo $member[ 'name' ] ;
 						echo '<span class="button-group" >' ;
-						echo $this->Html->link( 'Profil bearbeiten' , array( 'controller' => 'Members' , 'action' => 'edit' , $member[ 'id' ] ) , array( 'class' => 'button big icon user' ) ) ;
-						echo $this->Html->link( 'Aussloggen' , array( 'controller' => 'Members' , 'action' => 'logout' ) , array( 'class' => 'button big icon key' ) ) ;
+						echo $this->Html->link( 'Profil bearbeiten' , array( 'controller' => 'Members' , 'action' => 'edit' , $member[ 'id' ] ) , array( 'class' => 'button icon user' ) ) ;
+						echo $this->Html->link( 'Aussloggen' , array( 'controller' => 'Members' , 'action' => 'logout' ) , array( 'class' => 'button icon key' ) ) ;
 						echo '</span>' ;
 					}
 				?>
