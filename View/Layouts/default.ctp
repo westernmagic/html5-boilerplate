@@ -38,7 +38,7 @@
 		<!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 		
 		<!-- All JavaScript at the bottom, except this Modernizr build incl. Respond.js Respond is a polyfill for min/max-width media queries. Modernizr enables HTML5 elements & feature detects; for optimal performance, create your own custom Modernizr build: www.modernizr.com/download/ -->
-		<script src="js/libs/modernizr-2.0.6.min.js"></script>
+		<?php echo $this->Html->script( '/Html5/js/libs/modernizr-2.0.6.min.js') ; ?>
 	</head>
 	
 	<body>
@@ -103,13 +103,11 @@
 		<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script>
-			window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')
+			window.jQuery || document.write( '<?php echo str_replace( '</script>' , '<\/script>' , $this->Html->script( '/Html5/js/libs/jquery-1.7.1.min.js' ) ); ?>' ) ;
 		</script>
 		
-		
 		<!-- scripts concatenated and minified via build script -->
-		<script defer src="js/plugins.js"></script>
-		<script defer src="js/script.js"></script>
+		<?php echo $this->Html->script( array( '/Html5/js/plugins.js' , '/Html5/js/script.js' ) ) ; ?>
 		<!-- end scripts -->
 		
 		<?php
