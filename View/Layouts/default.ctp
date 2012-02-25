@@ -26,7 +26,7 @@
 		<meta name="author" content="" />
 		
 		<!-- Mobile viewport optimized: h5bp.com/viewport -->
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta name="viewport" content="width=device-width" />
 		
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 		
@@ -37,11 +37,16 @@
 		
 		<!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 		
-		<!-- All JavaScript at the bottom, except this Modernizr build incl. Respond.js Respond is a polyfill for min/max-width media queries. Modernizr enables HTML5 elements & feature detects; for optimal performance, create your own custom Modernizr build: www.modernizr.com/download/ -->
-		<?php echo $this->Html->script( '/Html5/js/libs/modernizr-2.0.6.min.js') ; ?>
+		<!-- All JavaScript at the bottom, except this Modernizr build. Modernizr enables HTML5 elements & feature detects for optimal performance. Create your own custom Modernizr build: www.modernizr.com/download/ -->
+		<?php echo $this->Html->script( '/Html5/js/libs/modernizr-2.5.3.min.js') ; ?>
 	</head>
 	
 	<body>
+		<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6. chromium.org/developers/how-tos/chrome-frame-getting-started -->
+		<!--[if lt IE 7]>
+			<p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
+		<![endif]-->
+
 		<header>
 		
 		</header>
@@ -123,14 +128,5 @@
 			g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
 			s.parentNode.insertBefore(g,s)}(document,'script'));
 		</script>
-		
-		<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6. chromium.org/developers/how-tos/chrome-frame-getting-started -->
-		<!--[if lt IE 7 ]>
-			<script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-			<script defer>
-				window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})
-			</script>
-		<![endif]-->
-		
 	</body>
 </html>

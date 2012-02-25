@@ -1,5 +1,5 @@
 /*
- * HTML5 ✰ Boilerplate
+ * HTML5 Boilerplate
  *
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -7,9 +7,13 @@
  *
  * Detailed information about this CSS: h5bp.com/css
  *
- * ==|== non-semantic helper classes ========================================
- * Please define your styles before this section.
- * ========================================================================== */
+ * ==|== helper-printer =====================================================
+ */
+
+
+/* ==|== non-semantic helper classes ========================================
+   Please define your styles before this section.
+   ========================================================================== */
 
 /* For image replacement */
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
