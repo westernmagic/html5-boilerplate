@@ -1,3 +1,23 @@
+<?php
+/**
+ *
+ * PHP 5
+ *
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       Cake.View.Layouts
+ * @since         CakePHP(tm) v 0.10.0.1076
+ * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
+
+$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
+?>
 <!DOCTYPE html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]>
@@ -38,7 +58,13 @@
 		<!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 		
 		<!-- All JavaScript at the bottom, except this Modernizr build. Modernizr enables HTML5 elements & feature detects for optimal performance. Create your own custom Modernizr build: www.modernizr.com/download/ -->
-		<?php echo $this->Html->script( '/Html5/js/libs/modernizr-2.5.3.min.js') ; ?>
+		<?php
+			echo $this->Html->script( '/Html5/js/libs/modernizr-2.5.3.min.js' ) ;
+			echo $this->Html->meta(' icon' );
+	
+			echo $this->fetch( 'meta' ) ;
+			echo $this->fetch( 'css' ) ;
+		?>
 	</head>
 	
 	<body>
@@ -55,53 +81,17 @@
 				echo $this->Session->flash() ;
 				echo $this->Session->flash( 'auth' ) ;
 			?>
-			<div>
-				<span class="breadcrumbs" >
-					<?php echo $this->Html->getCrumbs( ' > ' , 'Home' ) ; ?>
-				</span>
-				<span class="user-bar">
-					<?php
-					if( !$this->Session->check( 'Auth.User' ) ) {
-						echo $this->Form->create( 'Member' , array(
-							'url' => array( 'controller' => 'Members' , 'action' => 'login' ) ,
-							'inputDefaults' => array(
-								'label' => false ,
-								'div' => false ,
-								'dateFormat' => 'DMY' ,
-								'minYear' => '1911' ,
-								'maxYear' => '2011'
-							)
-						) ) ;
-						echo $this->Form->input( 'username' , array( 'placeholder' => 'Benuztername' ) ) ;
-						echo $this->Form->input( 'password' , array( 'placeholder' => 'Passwort' ) ) ;
-						echo $this->Form->button( 'Einloggen' , array( 'type' => 'submit' , 'class' => 'button icon key' ) ) ;
-						echo $this->Form->end() ;
-					} else {
-						$member = $this->Session->read( 'Auth.User' ) ;
-						echo $member[ 'name' ] ;
-						echo '<span class="button-group" >' ;
-						echo $this->Html->link( 'Profil bearbeiten' , array( 'controller' => 'Members' , 'action' => 'edit' , $member[ 'id' ] ) , array( 'class' => 'button icon user' ) ) ;
-						echo $this->Html->link( 'Aussloggen' , array( 'controller' => 'Members' , 'action' => 'logout' ) , array( 'class' => 'button icon key' ) ) ;
-						echo '</span>' ;
-					}
-				?>
-			</div>
-			<?php echo $content_for_layout ; ?>
+			<?php echo $this->fetch( 'content' ) ; ?>
 		</div>
 		<footer>
-			<?php
-				echo $this->Html->link(
-					$this->Html->image( 'cake.power.gif' , array(
-						'alt' => __( 'CakePHP: the rapid development php framework' , true ) ,
-						'border' => '0'
-					) ) ,
-					'http://www.cakephp.org/' ,
-					array( 'target' => '_blank' , 'escape' => false )
-				) ;
+			<?php echo $this->Html->link(
+					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
+					'http://www.cakephp.org/',
+					array('target' => '_blank', 'escape' => false)
+				);
 			?>
 		</footer>
 		<?php echo $this->element( 'sql_dump' ) ; ?>
-		
 		
 		<!-- JavaScript at the bottom for fast page loading -->
 		
@@ -117,7 +107,7 @@
 		
 		<?php
 			//echo $this->AssetCompress->includeJs() ;
-			echo $scripts_for_layout ;
+			echo $this->fetch( 'script' ) ;
 			echo $this->Js->writeBuffer() ;
 		?>
 		
